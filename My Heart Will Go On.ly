@@ -11,30 +11,43 @@
 }
 
 % Make sure to set "1" to have chords lasting for 4 tempo aka at the beginning of each bar
-myChords = \chordmode {\override ChordName.font-size = #1/2
-                       s4 dod1:m ré1 la4}
-pianochords = \chords {\override ChordName.font-size = #1/2
-                       \set noChordSymbol = "—"
-                       s4 dod1:m7 ré la:maj7 si2:7sus4 si2:7 
-                       dod1:m7 si la si2:sus7 mi2
-                       mi1 si:7/fad la:sus mi2/si si:7sus4
-                       mi1 si:7/fad la
-                       s1 mi si:7 la mi2/si si:7
-                       mi1 si:7 la:sus s1
-                       dod:m7 si la si:7
-                       dod:m7 si la si:7
-                       dod:m7 si la si:7
-                       dod:m7 sold:m7 la si:7
-                       dod:m7 si la si2:7sus4 si
-                       dod1:m7 si:7 la:sus mi2/si si
-                       dod1:m7 si:7 la:sus la
-                       mi si:7 la si2 sold:7/sid
-                       dod1:m7 sold:m la s1
-                       dod1:m7 si la si:7
-                       dod1:m7 si:7 la si:7
-                       dod1:m7 si la si:7
-                       
-                       
+myChords = \chordmode {
+  \override ChordName.font-size = #1/2
+  s4 dod1:m ré1 la4
+}
+pianochords = \chords {
+  \override ChordName.font-size = #1/2
+  \set noChordSymbol = "—"
+  s4 dod1:m7 ré la:maj7 si2:7sus4 si2:7
+  dod1:m7 si la si2:sus7 mi2
+  mi1 si:7/fad la:sus mi2/si si:7sus4
+  mi1 si:7/fad la
+  s1 mi si:7 la mi2/si si:7
+  mi1 si:7 la:sus s1
+  dod:m7 si la si:7
+  dod:m7 si la si:7
+  dod:m7 si la si:7
+  dod:m7 sold:m7 la si:7
+  dod:m7 si la si2:7sus4 si
+  dod1:m7 si:7 la:sus mi2/si si
+  dod1:m7 si:7 la:sus la
+  mi si:7 la si2 sold:7/sid
+  dod1:m7 sold:m la s1
+  dod1:m7 si la si:7
+  dod1:m7 si:7 la si:7
+  dod1:m7 si la si:7
+  dod1:m7 sold:m la si:7
+  dod1:m7 si la si2:7sus4 si:7
+  dod1:m7 si la dod2:m/sold fad:dim7
+  fa1:m7 mib réb mib
+  fa:m7 mib réb mib:7
+  fa:m7 mib réb mib
+  fa:m7 do:m7 réb:maj7 mib
+  lab mib/lab réb/lab
+  mib/lab lab mib/lab
+  réb/lab réb lab
+
+
 }
 
 \score {
@@ -136,7 +149,7 @@ pianochords = \chords {\override ChordName.font-size = #1/2
       \new Staff = "RH"
       \with {\consists "Span_arpeggio_engraver"}
       \relative {
-        
+
         \tempo "Andante" 4 = 90
         \time 4/4
         \key mi \major
@@ -178,8 +191,8 @@ pianochords = \chords {\override ChordName.font-size = #1/2
         <<si,4 mi fad si\arpeggio>> fad8 sold la si dod réd
         <<mi,1 sold mi'\arpeggio>>
         <<fad,2 si fad'\arpeggio>> r8 fad,8 si4
-        <<si2 dod mi si' \arpeggio>> << {dod,2\stemDown} \\ {la'4\stemUp sold8 fad~<<fad4. mi si>>} >>
-        << {si8 si2} \\ {s8 sold'4 la} >>
+        <<si2 dod mi si' \arpeggio>> << {\stemDown dod,2 \stemNeutral} \\ {\stemUp la'4 \stemNeutral sold8 fad~<<fad4. mi si>>} >>
+        << {si8 \stemDown si2 \stemNeutral} \\ {s8 \stemUp sold'4 \stemNeutral la} >>
         <<si,2 mi sold \arpeggio>> <<{fad4 mi} \\ {<<sold,2 si>>}>>
         <<fad4 si réd \arpeggio>> mi4~mi8 fad,~<<fad4 réd'>>
         <<mi,4 la réd \arpeggio>> mi2 fad4
@@ -208,23 +221,58 @@ pianochords = \chords {\override ChordName.font-size = #1/2
         <<fad2. si réd>> si4
         <<si2 dod mi si' \arpeggio>> <<la,4 dod la'>> sold8 fad~
         4. la,8 <<si4 sold'>> <<dod, la'>>
-        <<si,2 sold'>> <<{fad,2} \\ {fad'4 mi4}>>
-        <<{fad,2 \arpeggio fad} \\ {réd'4 \arpeggio mi2 réd4}>>
-        <<dod,2~ mi la dod \arpeggio>> 4. réd16 dod
+        <<si,2 sold'>> <<{\stemDown fad,2} \\ {\stemUp fad'4 mi4}>>
+        <<{fad,2 \arpeggio fad} \\ { réd'4 \arpeggio mi2 réd4}>>
+        <<dod,2~ mi la dod \arpeggio>> \stemUp dod4. réd16 dod
         si4 fad8 sold la si dod réd
         \chordmode{mi1:8^7\arpeggio}
         <<fad,2. si fad'\arpeggio>> si,4
         <<si2 dod mi si' \arpeggio>> <<la,4 dod la'>> sold8 fad~
         fad4. sold,8 <<si4 sold'>> <<dod, la'>>
-
+        <<si,2 sold'>> <<si,8 fad'>> fad, mi' fad,~
+        <<fad4 réd'>> <<mi,4 sold mi'>> mi,8 sold réd' mi,
+        <<sold4 réd' \arpeggio>> mi2 fad4 <<sold,4. si sold' \arpeggio>> fad,8~<<fad4. fad'>> mi,8
+        <<mi2 sold si mi \arpeggio>> r8 sold, fad' mi
+        fad si4.~8 si,8 la' sold
+        mi4 dod2 si4
+        <<mi,4. si' \arpeggio>> mi,8 réd4. mi16 fad
+        <<si,2. sold'>> la8 sold
+        \mergeDifferentlyDottedOn
+        <<{<<\stemDown si,4. mi fad>> \stemNeutral si,8 mi2} \\ {\stemUp fad8 \stemNeutral si~si2 sold8 si}>>
+        << {<<dod,4 mi >> dod8. mi4} \\ {\stemUp dod'2.}>> <<réd,4 mi'>>
+        <<mi,2 sold dod mi>> <<fad, do' mib fad>>
+        \key lab \major
+        <<lab, do fa lab>> <<do,, fa>>
+        <<sib mib sol sib>> <<mib,,4 sol>> <<mib mib'>>
+        <<mib2 fa lab mib' \arpeggio>> \chordmode{réb'4:3.5.8 fa'8:m/+do} <<sib, sib'>>
+        << {<< sib,2 sib'>> <<do,4 do'>> <<réb, réb'>>} \\ {<<mib,2 sol>> <<fa lab>>} >>
+        \chordmode{fa'2:m/+do\arpeggio do'4:m7^5/+sib lab4:8^7} 
+        \chordmode{do':m/+sol\arpeggio lab:3.5.8} r8 sol,~<<sol4 do mib sol>>
+        \chordmode{fa2:m8^7}
+        s2 <<mib,4 lab sib mib>> <<sib,8 sib'>> <<do, do'>> <<réb, réb'>> <<mib, mib'>> <<fa, fa'>> <<sol, sol'>>
+        <<lab,2 do fa lab>> <<do,, fa>>
+        <<sib mib sol sib>> <<mib,,4 sol>> <<mib mib'>>
+        <<fa2 lab mib' \arpeggio>> \chordmode{réb'4:3.5.8 fa'8:m/+do} <<sib, sib'>>
+        << {<< sib,2 sib'>> <<do,4 do'>> <<réb, réb'>>} \\ {<<mib,2 sol>> <<fa lab>>} >>
+        \chordmode{fa'2:m/+do\arpeggio } <<sib,4 sib'>> <<lab, lab'>> 
+        \chordmode{do':m/+sol\arpeggio} <<lab,4 lab'~>> <<lab,8 lab'>> sol, sol' do
+        <<sib,4 sol'>> <<do, lab'>> sib,8 mib sib'4
+        <<do,2 mib do' \arpeggio>> sib
+        <<do,2. lab'>> réb,16 do sib lab 
+        sib8 mib4.~8 mib, sib'4
+        lab2. fa4
+        mib1
+        << {<<do'2. mib lab do>>} \\ {s2 s4 réb'16 do sib lab} >>
+        sib8 mib4.~8 mib, sib4
+        
 
       }
 
 
       \new Staff = "LH"
-      
+
       \relative {
-        
+
         \clef F
         \key mi \major
         \partial 4
@@ -301,7 +349,19 @@ pianochords = \chords {\override ChordName.font-size = #1/2
         si, si' fad' dod' réd dod fad,4
         la,8 mi' la si dod mi dod4
         si,8 fad' la4 la8 fad4 si,8
-        
+        dod,8 dod' sold' réd' mi4 sold,
+        sold,8 réd'4 si'8~si4 sold,4
+        la8 mi' la si dod mi4 dod8
+        si, fad' la4~8 la fad4
+        dod,8 dod' sold' réd' mi4 dod8 sold
+        si, fad' dod' fad, réd' fad, dod'4
+        la,8 mi' la si dod mi~4
+        si,8 fad' la4 si,8 fad'la si,
+        dod, dod' dod sold' réd' mi dod sold
+        si,4 fad'~8 fad4.
+        la,8 mi' si'4 la8 mi la, la
+        sold mi' dod' mi, fad, mib' do' mib,
+
       }
 
 
