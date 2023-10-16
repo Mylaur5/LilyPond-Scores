@@ -258,16 +258,44 @@ RH = \relative {
   \key lab \major
   <<lab, do fa lab>> <<do,, fa>>
   <<sib mib sol sib>> <<mib,,4 sol>> <<mib mib'>>
-  <<mib2 fa lab mib' \arpeggio>> \chordmode{réb'4:3.5.8 fa'8:m/+do} <<sib, sib'>>
-  << {<< sib,2 sib'>> <<do,4 do'>> <<réb, réb'>>} \\ {<<mib,2 sol>> <<fa lab>>} >>
+  <<mib2 fa lab mib' \arpeggio>> \chordmode{réb'4:3.5.8 fa'8:m/+do}
+
+  <<
+    \new Voice = "first"
+    \relative {
+      \voiceOne
+      <<sib' sib'~>>
+      << sib,2 sib'>> <<do,4 do'>> <<réb, réb'>>
+    }
+    \new Voice = "second"
+    \relative {
+      \voiceTwo
+      s8 <<mib''2 sol>> <<fa lab>>
+    }
+  >>
+
   \chordmode{fa'2:m/+do\arpeggio do'4:m7^5/+sib lab4:8^7}
   \chordmode{do':m/+sol\arpeggio lab:3.5.8} r8 sol,~<<sol4 do mib sol>>
   \chordmode{fa2:m8^7}
   s2 <<mib,4 lab sib mib>> <<sib,8 sib'>> <<do, do'>> <<réb, réb'>> <<mib, mib'>> <<fa, fa'>> <<sol, sol'>>
-  <<lab,2 do fa lab>> <<do,, fa>>
+  <<lab,,2 do fa lab>> <<do,, fa>>
   <<sib mib sol sib>> <<mib,,4 sol>> <<mib mib'>>
-  <<fa2 lab mib' \arpeggio>> \chordmode{réb'4:3.5.8 fa'8:m/+do} <<sib, sib'>>
-  << {<< sib,2 sib'>> <<do,4 do'>> <<réb, réb'>>} \\ {<<mib,2 sol>> <<fa lab>>} >>
+  <<fa2 lab mib' \arpeggio>> \chordmode{réb'4:3.5.8 fa'8:m/+do}
+
+  <<
+    \new Voice = "first"
+    \relative {
+      \voiceOne
+      <<sib' sib'~>>
+      << sib,2 sib'>> <<do,4 do'>> <<réb, réb'>>
+    }
+    \new Voice = "second"
+    \relative {
+      \voiceTwo
+      s8 <<mib''2 sol>> <<fa lab>>
+    }
+  >>
+
   \chordmode{fa'2:m/+do\arpeggio } <<sib,4 sib'>> <<lab, lab'>>
   \chordmode{do':m/+sol\arpeggio} <<lab,4 lab'~>> <<lab,8 lab'>> sol, sol' do
   <<sib,4 sol'>> <<do, lab'>> sib,8 mib sib'4
