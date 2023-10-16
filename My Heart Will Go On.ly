@@ -79,7 +79,7 @@ guitar = \relative {
   réd mi2 mi4
   si1
   r1
-  
+
   mi
   fad2. si,4
   si'2 la4 sold
@@ -97,7 +97,7 @@ guitar = \relative {
   réd mi2 fad4
   sold2 fad
   mi2. r4
-  
+
   mi8\mp si' mi mi~mi si mi,4
   mi8 si' mi mi~mi si mi,4
   mi8 si' mi mi~mi si mi,4
@@ -110,7 +110,7 @@ guitar = \relative {
   réd mi2 mi4
   si1
   r1
-  
+
   mi4.mi8 mi4 mi4
   réd mi2~mi8 mi8
   réd4 mi2 fad4
@@ -119,7 +119,7 @@ guitar = \relative {
   réd mi2 mi4
   si1
   r1
-  
+
   mi
   fad2. si,4
   si'2 la4 sold
@@ -145,7 +145,7 @@ guitar = \relative {
   mib'2 réb4 do
   sib2 do4 réb
   do2 sib4 lab
-  sol lab2 sib4 
+  sol lab2 sib4
   fa2.~(fa8 sol16 fa
   mib2 réb)
   lab'1 sib2. mib,8 mib'~
@@ -410,20 +410,22 @@ LH = \relative {
 
 \score {
   <<
-    \new Staff \with { instrumentName = "Guitar" 
-                       \consists "Span_arpeggio_engraver"
-                       midiInstrument = "acoustic guitar (steel)"
+    \new Staff \with {
+      instrumentName = "Guitar"
+      \consists "Span_arpeggio_engraver"
+      midiInstrument = "acoustic guitar (steel)"
     }{
-    \guitar
+      \guitar
     }
-    \new PianoStaff  \with { instrumentName = "Piano" 
-                             midiInstrument = "acoustic grand"
+    \new PianoStaff  \with {
+      instrumentName = "Piano"
+      midiInstrument = "acoustic grand"
     }
-    
+
     <<
       \set PianoStaff.connectArpeggios = ##t
       \pianochords
-      \new Staff = "RH" \RH 
+      \new Staff = "RH" \RH
       \new Staff = "LH" \LH
     >>
   >>
