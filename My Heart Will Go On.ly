@@ -184,7 +184,7 @@ RH = \relative {
   \set Staff.connectArpeggios = ##t
   << {mi4.\arpeggio mi8 mi4 mi4}  \\ {<<sold,2 si\arpeggio>> r8 sold4.} >>
   <<la4 si4 réd4 \arpeggio>>  mi2 mi4
-  réd2. dod8 si
+  si2. dod8 si
   la si dod mi la si dod réd
   << mi,4. sold mi'\arpeggio>> << {mi,8 mi4 mi4} \\ {sold,8~sold2} >>
   <<si4 réd \arpeggio>> mi4~mi8 si mi si
@@ -200,7 +200,7 @@ RH = \relative {
   4. si,8 sold'4 la
   sold2 fad4 mi
   \set Staff.connectArpeggios = ##t
-  << {fad4\arpeggio  mi~mi réd} \\ {fad,2\arpeggio mi8 sold~4} >>
+  << {réd4\arpeggio  mi~mi réd} \\ {fad,2\arpeggio mi8 sold~4} >>
   <<mi1 dod'>>
   <<si,4 mi fad si\arpeggio>> fad8 sold la si dod réd
   <<mi,1 sold mi'\arpeggio>>
